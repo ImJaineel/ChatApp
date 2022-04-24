@@ -1,5 +1,6 @@
 package com.example.chatapp
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         userRecyclerView.adapter = adapter
         
         mDbRef.child("user").addValueEventListener(object : ValueEventListener {
+            @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()
                 for (postSnapshot in snapshot.children){
