@@ -26,6 +26,9 @@
             android:layout_width="wrap_content"
             android:background="@drawable/message_box_background"
             android:layout_height="50dp"
+            android:paddingStart="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
             android:hint="Type message"
             android:layout_weight="90"/>
         <ImageView

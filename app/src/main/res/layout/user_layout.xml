@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:text="@string/jp"
         android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:paddingStart="10dp"/>
 
     <View
         android:layout_below="@id/txt_name"
