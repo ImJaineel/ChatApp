@@ -16,6 +16,7 @@ class LogIn : AppCompatActivity() {
     private lateinit var edtPassword: EditText
     private lateinit var btnLogIn: Button
     private lateinit var btnSignUp: Button
+    private lateinit var btnResetPassword: Button
 
     private lateinit var mAuth: FirebaseAuth
 
@@ -30,6 +31,24 @@ class LogIn : AppCompatActivity() {
         edtPassword = findViewById(R.id.edt_password)
         btnLogIn = findViewById(R.id.login)
         btnSignUp = findViewById(R.id.signup)
+        btnResetPassword = findViewById(R.id.resetPassword)
+
+        btnResetPassword.setOnClickListener {
+            val email = edtEmail.text.toString()
+
+            if (email == "") {
+                Toast.makeText(this,"Please Enter your email",Toast.LENGTH_SHORT).show()
+            }
+            else {
+                mAuth.sendPasswordResetEmail(email)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this,"Reset Password Email has been sent.",Toast.LENGTH_LONG).show()
+                            edtEmail.setText("")
+                        }
+                    }
+            }
+        }
 
         btnSignUp.setOnClickListener {
             val intent = Intent(this, SignUp::class.java)
@@ -67,5 +86,4 @@ class LogIn : AppCompatActivity() {
                 }
             }
     }
-
 }
