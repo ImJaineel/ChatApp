@@ -16,6 +16,8 @@
 
     <EditText
         android:id="@+id/edt_email"
+        android:singleLine="true"
+        android:imeOptions="actionNext"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/app_logo"
@@ -28,6 +30,8 @@
 
     <EditText
         android:id="@+id/edt_password"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/edt_email"

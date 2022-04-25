@@ -40,7 +40,13 @@ class LogIn : AppCompatActivity() {
             val email = edtEmail.text.toString()
             val password = edtPassword.text.toString()
 
-            login(email,password)
+            if (email == "" || password == "")
+            {
+                Toast.makeText(this, "Username or Password blank", Toast.LENGTH_LONG).show()
+            }
+            else {
+                login(email, password)
+            }
         }
 
     }
@@ -52,12 +58,12 @@ class LogIn : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // code for logging in
                     val intent = Intent(this@LogIn, MainActivity::class.java)
+                    Toast.makeText(this,"User Logged in",Toast.LENGTH_SHORT).show()
                     finish()
                     startActivity(intent)
                 } else {
                     // If sign in fails, display a message to the user.
                     Toast.makeText(this@LogIn, "User Doesn't exist", Toast.LENGTH_SHORT).show()
-
                 }
             }
     }

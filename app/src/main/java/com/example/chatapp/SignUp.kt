@@ -37,8 +37,12 @@ class SignUp : AppCompatActivity() {
             val name = edtName.text.toString()
             val password = edtPassword.text.toString()
 
-            signup(email, name, password)
-
+            if (email=="" || name=="" || password=="") {
+                Toast.makeText(this,"Email or Name or Password is blank",Toast.LENGTH_SHORT).show()
+            }
+            else {
+                signup(email, name, password)
+            }
         }
 
     }

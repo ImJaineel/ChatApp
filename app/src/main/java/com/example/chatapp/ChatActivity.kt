@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -70,12 +71,17 @@ class ChatActivity : AppCompatActivity() {
             val message = messageBox.text.toString()
             val messageObject = Message(message, senderUid)
 
-            mDbRef.child("chats").child(senderRoom!!).child("message").push()
-                .setValue(messageObject).addOnSuccessListener {
-                    mDbRef.child("chats").child(receiverRoom!!).child("message").push()
-                        .setValue(messageObject)
-                }
-            messageBox.setText("")
+            if (message==""){
+                Toast.makeText(this,"No message entered",Toast.LENGTH_SHORT).show()
+                messageBox.setText("")
+            } else {
+                mDbRef.child("chats").child(senderRoom!!).child("message").push()
+                    .setValue(messageObject).addOnSuccessListener {
+                        mDbRef.child("chats").child(receiverRoom!!).child("message").push()
+                            .setValue(messageObject)
+                    }
+                messageBox.setText("")
+            }
         }
 
     }
