@@ -1,6 +1,7 @@
 package com.example.chatapp
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -63,6 +64,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.UserProfile){
+            val gotoProfileIntent = Intent(this@MainActivity,UserProfile::class.java)
+            startActivity(gotoProfileIntent)
+        }
         if(item.itemId == R.id.logout){
             // write he login for logout
             mAuth.signOut()
