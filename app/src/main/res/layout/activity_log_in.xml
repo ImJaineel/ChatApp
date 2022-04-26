@@ -46,37 +46,39 @@
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_password"
-            android:text="Login"
+            android:text="@string/login"
             android:background="@drawable/btn_background"
             android:textColor="@color/white"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/signup"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/login"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_background"
-            android:text="Signup"
+            android:text="@string/signup"
             android:textColor="@color/white" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/resetPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/signup"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:background="@drawable/btn_background"
-            android:text="Reset Password"
+            android:text="@string/reset_password"
             android:textColor="@color/white" />
 
     </RelativeLayout>

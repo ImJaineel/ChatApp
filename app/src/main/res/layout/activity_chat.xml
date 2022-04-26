@@ -31,6 +31,7 @@
             android:layout_marginBottom="3dp"
             android:hint="Type message"
             android:layout_weight="90"/>
+
         <ImageView
             android:id="@+id/sentButton"
             android:layout_width="50dp"

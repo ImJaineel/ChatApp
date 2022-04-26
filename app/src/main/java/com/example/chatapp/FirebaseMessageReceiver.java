@@ -1,5 +1,6 @@
 package com.example.chatapp;
 
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,6 +14,7 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+@SuppressLint("MissingFirebaseInstanceTokenRefresh")
 public class FirebaseMessageReceiver
         extends FirebaseMessagingService {
 
@@ -29,10 +31,6 @@ public class FirebaseMessageReceiver
         // attributes. Since here we do not have any data
         // payload, This section is commented out. It is
         // here only for reference purposes.
-		/*if(remoteMessage.getData().size()>0){
-			showNotification(remoteMessage.getData().get("title"),
-						remoteMessage.getData().get("message"));
-		}*/
 
         // Second case when notification payload is
         // received.
@@ -74,7 +72,7 @@ public class FirebaseMessageReceiver
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         // Pass the intent to PendingIntent to start the
         // next Activity
-        PendingIntent pendingIntent
+        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent
                 = PendingIntent.getActivity(
                 this, 0, intent,
                 PendingIntent.FLAG_ONE_SHOT);
@@ -95,17 +93,8 @@ public class FirebaseMessageReceiver
         // A customized design for the notification can be
         // set only for Android versions 4.1 and above. Thus
         // condition for the same is checked here.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            builder = builder.setContent(
-                    getCustomDesign(title, message));
-        } // If Android Version is lower than Jelly Beans,
-        // customized layout cannot be used and thus the
-        // layout is set as follows
-        else {
-            builder = builder.setContentTitle(title)
-                    .setContentText(message)
-                    .setSmallIcon(R.drawable.logo);
-        }
+        builder = builder.setContent(
+                getCustomDesign(title, message));
         // Create an object of NotificationManager class to
         // notify the
         // user of events that happen in the background.
