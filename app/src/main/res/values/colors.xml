@@ -11,4 +11,5 @@
 <!--    <color name="yellow">#FFD700</color>-->
     <color name="messageBox_border">#29a8df</color>
     <color name="Btn_Color">#1a2e46</color>
+    <color name="grey">#585858</color>
 </resources>
