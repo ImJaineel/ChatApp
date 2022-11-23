@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".LogIn">
+
+        <ImageView
+            android:id="@+id/app_logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/logo" />
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/app_logo"
+            android:layout_marginTop="10dp"
+            android:hint="@string/email_txt"
+            android:paddingLeft="13dp"
+            android:background="@drawable/edt_background"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/edt_email"
+            android:layout_marginTop="10dp"
+            android:hint="@string/password"
+            android:paddingLeft="13dp"
+            android:background="@drawable/edt_background"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:inputType="textPassword"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_password"
+            android:text="@string/login"
+            android:background="@drawable/btn_background"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/withgoogle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/login"-->
+<!--            android:text="With Google"-->
+<!--            android:background="@drawable/btn_background"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="10dp"/>-->
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_background"
+            android:text="@string/signup"
+            android:textColor="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/resetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:background="@drawable/btn_background"
+            android:text="@string/reset_password"
+            android:textColor="@color/white" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_below="@id/app_logo"/>
+
+    </RelativeLayout>
+</ScrollView>

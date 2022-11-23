@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ChatApp</string>
+    <string name="jp">JP</string>
+    <string name="this_is_sent_message">This is sent message</string>
+    <string name="this_is_receive_message">This is receive message</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="signup">Signup</string>
+    <string name="login">Login</string>
+    <string name="my_profile">My Profile</string>
+    <string name="about_developers">About Developers</string>
+    <string name="logout">logout</string>
+    <string name="you_are_logged_in_as">You are logged in as:</string>
+    <string name="textview">TextView</string>
+    <string name="email">Email-ID: jaineel2001@gmail.com</string>
+    <string name="name_jaineel">Name: Jaineel</string>
+    <string name="password">Password</string>
+    <string name="email_txt">Email</string>
+</resources>
