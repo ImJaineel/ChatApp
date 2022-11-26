@@ -28,6 +28,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".DisplayPicActivity"
+            android:exported="false" />
+        <activity android:name=".ChangeDisplayPicActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
