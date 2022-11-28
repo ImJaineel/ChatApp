@@ -60,18 +60,18 @@ class ChangeDisplayPicActivity : AppCompatActivity() {
             ref.putFile(newDisplayPicUri)
                 .addOnSuccessListener {
                     Log.d(TAG, "onSuccess: Display pic uploaded")
-                ref.downloadUrl.addOnSuccessListener {
-                    Log.d(TAG, "onSuccess: $it")
+                ref.downloadUrl.addOnSuccessListener { downloaded ->
+                    Log.d(TAG, "onSuccess: $downloaded")
                     db.child("user")
                         .child(mAuth.currentUser?.uid!!)
                         .child("displaypic")
-                        .setValue(it.toString())
+                        .setValue(downloaded.toString())
                         .addOnSuccessListener {
                             Log.d(TAG, "onSuccess: Display pic updated")
                             finish()
                         }
-                        .addOnFailureListener {
-                            Log.d(TAG, "onFailure: ${it.message}")
+                        .addOnFailureListener {except ->
+                            Log.d(TAG, "onFailure: ${except.message}")
                         }
                 }
             }

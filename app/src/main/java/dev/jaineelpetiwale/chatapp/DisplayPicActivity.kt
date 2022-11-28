@@ -24,9 +24,9 @@ class DisplayPicActivity : AppCompatActivity() {
     private val pickMedia = registerForActivityResult(PickVisualMedia()) { new_pic_uri ->
         if (new_pic_uri != null) {
             Log.d("PhotoPicker", "Selected URI: $new_pic_uri")
-            val ChangeDisplayPicIntent = Intent(this, ChangeDisplayPicActivity::class.java)
-            ChangeDisplayPicIntent.putExtra("newDisplayPicUri", new_pic_uri.toString())
-            startActivity(ChangeDisplayPicIntent)
+            val changedisplaypicintent = Intent(this, ChangeDisplayPicActivity::class.java)
+            changedisplaypicintent.putExtra("newDisplayPicUri", new_pic_uri.toString())
+            startActivity(changedisplaypicintent)
         }
     }
 
