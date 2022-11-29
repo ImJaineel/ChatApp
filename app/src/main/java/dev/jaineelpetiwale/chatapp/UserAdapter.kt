@@ -45,7 +45,7 @@ class UserAdapter(val context: Context, private val userList: ArrayList<User>):
     }
 
     class UserViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val displayPic: ImageView = itemView.findViewById<ImageView>(R.id.txt_picture)
+        val displayPic: ImageView = itemView.findViewById(R.id.txt_picture)
         val textName = itemView.findViewById<TextView>(R.id.txt_name)!!
     }
 }

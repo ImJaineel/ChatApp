@@ -8,21 +8,21 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 
-class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) :
+class MessageAdapter(val context: Context, private val messageList: ArrayList<Message>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val ITEM_RECEIVE = 1
-    val ITEM_SENT = 2
+    private val ITEM_RECEIVE = 1
+    private val ITEM_SENT = 2
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == 1){
+        return if (viewType == 1){
             // inflate receive
             val view: View = LayoutInflater.from(context).inflate(R.layout.receive, parent, false)
-            return ReceiveViewHolder(view)
+            ReceiveViewHolder(view)
         } else {
             // inflate sent
             val view: View = LayoutInflater.from(context).inflate(R.layout.sent, parent, false)
-            return SentViewHolder(view)
+            SentViewHolder(view)
         }
     }
 
@@ -43,10 +43,10 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) 
 
     override fun getItemViewType(position: Int): Int {
         val currentMessage = messageList[position]
-        if (FirebaseAuth.getInstance().currentUser?.uid.equals(currentMessage.senderId)){
-            return ITEM_SENT
+        return if (FirebaseAuth.getInstance().currentUser?.uid.equals(currentMessage.senderId)){
+            ITEM_SENT
         } else {
-            return ITEM_RECEIVE
+            ITEM_RECEIVE
         }
     }
 
