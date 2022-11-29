@@ -2,17 +2,24 @@ package dev.jaineelpetiwale.chatapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var MainScreenUserImage: ImageButton
+//    private lateinit var search: ImageButton
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var userList: ArrayList<User>
     private lateinit var adapter: UserAdapter
@@ -23,12 +30,34 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setLogo(R.mipmap.ic_launcher)
-        supportActionBar?.setDisplayUseLogoEnabled(true)
+        supportActionBar?.hide()
 
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().reference
+
+        MainScreenUserImage = findViewById(R.id.MainScreenUserImage)
+//        search = findViewById(R.id.searchButton)
+
+        mDbRef.child("user")
+            .child(mAuth.currentUser?.uid!!)
+            .get()
+            .addOnSuccessListener {
+                val displaypic = it.child("displaypic").value
+                if (displaypic != "") {
+                    Glide.with(this).load(Uri.parse(displaypic.toString())).circleCrop().into(MainScreenUserImage)
+                } else {
+                    Glide.with(this).load(R.drawable.profile).circleCrop().into(MainScreenUserImage)
+                }
+            }
+
+        MainScreenUserImage.setOnClickListener {
+            startActivity(Intent(this, UserProfile::class.java))
+        }
+
+//        search.setOnClickListener {
+//            Toast.makeText(this, "Search Not Working", Toast.LENGTH_SHORT).show()
+//        }
+
 
         userList = ArrayList()
         adapter = UserAdapter(this,userList)
@@ -52,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
+                TODO("Not yet implemented")
             }
         })
     }

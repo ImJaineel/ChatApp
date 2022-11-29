@@ -3,10 +3,7 @@ package dev.jaineelpetiwale.chatapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 
@@ -15,8 +12,8 @@ class LogIn : AppCompatActivity() {
     private lateinit var edtEmail: EditText
     private lateinit var edtPassword: EditText
     private lateinit var btnLogIn: Button
-    private lateinit var btnSignUp: Button
-    private lateinit var btnResetPassword: Button
+    private lateinit var btnSignUp: ImageButton
+    private lateinit var btnResetPassword: ImageButton
     private lateinit var loading: ProgressBar
 
     private lateinit var mAuth: FirebaseAuth

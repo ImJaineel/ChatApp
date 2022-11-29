@@ -60,7 +60,7 @@ class SignUp : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val uid = mAuth.currentUser?.uid.toString()
                     mDbRef = FirebaseDatabase.getInstance().reference
-                    mDbRef.child("user").child(uid).setValue(User(email, name, uid))
+                    mDbRef.child("user").child(uid).setValue(User(email, name, uid, ""))
                     val intent = Intent(this@SignUp, MainActivity::class.java)
                     finish()
                     startActivity(intent)

@@ -19,6 +19,7 @@ class UserProfile : AppCompatActivity() {
     private lateinit var showName: TextView
     private lateinit var showEmail: TextView
     private lateinit var btnResetPasswd: Button
+    private lateinit var btnLogout: Button
 
     private lateinit var auth: FirebaseAuth
     private lateinit var mDbRef: DatabaseReference
@@ -33,6 +34,7 @@ class UserProfile : AppCompatActivity() {
         showName = findViewById(R.id.textView2)
         showEmail = findViewById(R.id.textView3)
         btnResetPasswd = findViewById(R.id.resetPassword)
+        btnLogout = findViewById(R.id.logout)
 
         auth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().reference
@@ -46,9 +48,9 @@ class UserProfile : AppCompatActivity() {
 
                 val displaypic = it.child("displaypic").value
                 if (displaypic != "") {
-                    Glide.with(this).load(Uri.parse(displaypic.toString())).into(dp)
+                    Glide.with(this).load(Uri.parse(displaypic.toString())).circleCrop().into(dp)
                 } else {
-                    Glide.with(this).load(R.mipmap.ic_launcher_round).into(dp)
+                    Glide.with(this).load(R.mipmap.ic_launcher_round).circleCrop().into(dp)
                 }
 
             }
@@ -68,6 +70,11 @@ class UserProfile : AppCompatActivity() {
                         Toast.makeText(this, "Password reset email sent", Toast.LENGTH_LONG).show()
                     }
                 }
+        }
+
+        btnLogout.setOnClickListener {
+            auth.signOut()
+            finishAffinity()
         }
     }
 

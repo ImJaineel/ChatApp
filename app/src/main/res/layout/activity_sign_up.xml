@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    <RelativeLayout
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".SignUp">
@@ -27,7 +27,7 @@
             android:layout_marginTop="10dp"
             android:hint="Email"
             android:paddingLeft="13dp"
-            android:background="@drawable/edt_background"
+            android:background="@drawable/txt"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"/>
 
@@ -41,7 +41,7 @@
             android:layout_marginTop="10dp"
             android:hint="Name"
             android:paddingLeft="13dp"
-            android:background="@drawable/edt_background"
+            android:background="@drawable/txt"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"/>
 
@@ -55,7 +55,7 @@
             android:layout_marginTop="10dp"
             android:hint="Password"
             android:paddingLeft="13dp"
-            android:background="@drawable/edt_background"
+            android:background="@drawable/txt"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"/>
 
@@ -65,10 +65,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_password"
             android:text="Signup"
-            android:background="@drawable/btn_background"
+            android:background="@drawable/btn"
             android:textColor="@color/white"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"/>
+
 
         <ProgressBar
             android:id="@+id/loading"
